@@ -1,8 +1,6 @@
 class CatsController < ApplicationController
   def index
-    matching_cats = Cat.all
-
-    @list_of_cats = matching_cats.order({ :created_at => :desc })
+    @cats = Cat.all.order({ :created_at => :desc })
 
     render({ :template => "cats/index.html.erb" })
   end
@@ -37,7 +35,7 @@ class CatsController < ApplicationController
 
     if the_cat.valid?
       the_cat.save
-      redirect_to("/cats/#{the_cat.id}", { :notice => "Cat updated successfully."} )
+      redirect_to("/cats/#{the_cat.id}", { :notice => "Cat updated successfully." })
     else
       redirect_to("/cats/#{the_cat.id}", { :alert => the_cat.errors.full_messages.to_sentence })
     end
@@ -49,6 +47,6 @@ class CatsController < ApplicationController
 
     the_cat.destroy
 
-    redirect_to("/cats", { :notice => "Cat deleted successfully."} )
+    redirect_to("/cats", { :notice => "Cat deleted successfully." })
   end
 end

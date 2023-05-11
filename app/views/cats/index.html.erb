@@ -21,56 +21,13 @@
 </div>
 
 <hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
 
-        <th>
-          Name
-        </th>
 
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_cats.each do |a_cat| %>
-      <tr>
-        <td>
-          <%= a_cat.id %>
-        </td>
-
-        <td>
-          <%= a_cat.name %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_cat.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_cat.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/cats/<%= a_cat.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+<% @cats.each do |cat| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= cat.name %></h5>
+      <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(cat.created_at) %> ago</small></p>
+    </div>
   </div>
-</div>
-
-<hr>
+<% end %>
