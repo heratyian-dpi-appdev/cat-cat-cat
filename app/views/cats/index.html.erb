@@ -1,33 +1,23 @@
-<div>
-  <div>
-    <h1>
-      List of all cats
-    </h1>
-  </div>
-</div>
-
-<hr>
+<h1>CatCatCat</h1>
 
 <div>
-  <div>
-    <h2>
-      Add a new cat
-    </h2>
+  <h2>
+    Add a new cat
+  </h2>
 
-    <form action="/insert_cat" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
+  <form action="/insert_cat" method="post">
+    <div>
+      <label for="name_box" class="form-label">
+        Name
+      </label>
 
-        <input type="text" id="name_box" name="query_name">
-      </div>
+      <input type="text" id="name_box" name="query_name" class="form-control">
+    </div>
 
-      <button>
-        Create cat
-      </button>
-    </form>
-  </div>
+    <button class="btn btn-outline-primary mt-2">
+      Create cat
+    </button>
+  </form>
 </div>
 
 <hr>
