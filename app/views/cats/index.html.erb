@@ -1,33 +1,37 @@
 <h1 class="sr-only">CatCatCat</h1>
 
-<div>
-  <h2>
-    Add a new cat
-  </h2>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
 
-  <form action="/insert_cat" method="post">
     <div>
-      <label for="name_box" class="form-label">
-        Name
-      </label>
+      <h2>
+        Add a new cat
+      </h2>
 
-      <input type="text" id="name_box" name="query_name" class="form-control">
+      <form action="/insert_cat" method="post">
+        <div>
+          <label for="name_box" class="form-label">
+            Name
+          </label>
+
+          <input type="text" id="name_box" name="query_name" class="form-control">
+        </div>
+
+        <button class="btn btn-outline-primary mt-2">
+          Create cat
+        </button>
+      </form>
     </div>
 
-    <button class="btn btn-outline-primary mt-2">
-      Create cat
-    </button>
-  </form>
-</div>
+    <hr>
 
-<hr>
-
-
-<% @cats.each do |cat| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title"><%= cat.name %></h5>
-      <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(cat.created_at) %> ago</small></p>
-    </div>
+    <% @cats.each do |cat| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= cat.name %></h5>
+          <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(cat.created_at) %> ago</small></p>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
