@@ -1,38 +1,41 @@
 <h1 class="sr-only">CatCatCat</h1>
 
-<div>
-  <h2>
-    Add a new cat
-  </h2>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
 
-  <form action="/insert_cat" method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="name_box" class="form-label">
-        Name
-      </label>
+    <h2>
+      Add a new cat
+    </h2>
 
-      <input type="text" id="name_box" name="query_name" class="form-control">
-    </div>
+    <form action="/insert_cat" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="name_box" class="form-label">
+          Name
+        </label>
 
-    <div class="mb-3">
-      <input type="file" id="image" name="image" class="form-control">
-    </div>
+        <input type="text" id="name_box" name="query_name" class="form-control">
+      </div>
 
-    <button class="btn btn-outline-primary">
-      Create cat
-    </button>
-  </form>
-</div>
+      <div class="mb-3">
+        <input type="file" id="image" name="image" class="form-control">
+      </div>
 
-<hr>
+      <button class="btn btn-outline-primary">
+        Create cat
+      </button>
+    </form>
+
+    <hr>
 
 
-<% @cats.each do |cat| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <img src="<%= cat.image.present? ? cat.image : "https://http.cat/404.jpg" %>" class="card-img-top" alt="image of <%= cat.name %>">
-      <h5 class="card-title"><%= cat.name %></h5>
-      <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(cat.created_at) %> ago</small></p>
-    </div>
+    <% @cats.each do |cat| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <img src="<%= cat.image.present? ? cat.image : "https://http.cat/404.jpg" %>" class="card-img-top" alt="image of <%= cat.name %>">
+          <h5 class="card-title"><%= cat.name %></h5>
+          <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(cat.created_at) %> ago</small></p>
+        </div>
+      </div>
+    <% end%>
   </div>
-<% end %>
+</div>
