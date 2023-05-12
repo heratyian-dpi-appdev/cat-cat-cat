@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Cat < ApplicationRecord
+  validates :name, presence: true
 end
