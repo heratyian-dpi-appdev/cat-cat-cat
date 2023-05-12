@@ -31,7 +31,11 @@
     <% @cats.each do |cat| %>
       <div class="card mb-3">
         <div class="card-body">
-          <img src="<%= cat.image.present? ? cat.image : "https://http.cat/404.jpg" %>" class="card-img-top" alt="image of <%= cat.name %>">
+          <% if cat.image.present? %>
+            <img src="<%= cat.image %>" class="card-img-top" alt="image of <%= cat.name %>">
+          <% else %>
+            <%= image_tag 'cat', class: "card-img-top", alt: "cat image" %>
+          <% end %>
           <h5 class="card-title"><%= cat.name %></h5>
           <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(cat.created_at) %> ago</small></p>
         </div>
