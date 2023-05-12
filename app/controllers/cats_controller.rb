@@ -18,7 +18,7 @@ class CatsController < ApplicationController
   def create
     the_cat = Cat.new
     the_cat.name = params.fetch("query_name")
-    the_cat.image = params.fetch("image")
+    the_cat.image = params.dig("image")
 
     if the_cat.valid?
       the_cat.save
