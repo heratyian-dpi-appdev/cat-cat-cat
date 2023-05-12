@@ -22,9 +22,9 @@ class CatsController < ApplicationController
 
     if the_cat.valid?
       the_cat.save
-      redirect_to("/cats", { :notice => "Cat created successfully." })
+      redirect_to("/cats", { :notice => "Meow. Cat created succesfully." })
     else
-      redirect_to("/cats", { :alert => the_cat.errors.full_messages.to_sentence })
+      redirect_to("/cats", { :alert => "Hisssssss... #{the_cat.errors.full_messages.to_sentence}" })
     end
   end
 
@@ -36,9 +36,9 @@ class CatsController < ApplicationController
 
     if the_cat.valid?
       the_cat.save
-      redirect_to("/cats/#{the_cat.id}", { :notice => "Cat updated successfully." })
+      redirect_to("/cats/#{the_cat.id}", { :notice => "Purrrrr. Cat updated successfully." })
     else
-      redirect_to("/cats/#{the_cat.id}", { :alert => the_cat.errors.full_messages.to_sentence })
+      redirect_to("/cats/#{the_cat.id}", { :alert => "Hisssssss... #{the_cat.errors.full_messages.to_sentence}" })
     end
   end
 
@@ -48,6 +48,6 @@ class CatsController < ApplicationController
 
     the_cat.destroy
 
-    redirect_to("/cats", { :notice => "Cat deleted successfully." })
+    redirect_to("/cats", { :notice => "Y u no love me? Cat deleted successfully." })
   end
 end
