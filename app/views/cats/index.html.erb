@@ -5,8 +5,8 @@
     Add a new cat
   </h2>
 
-  <form action="/insert_cat" method="post">
-    <div>
+  <form action="/insert_cat" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
       <label for="name_box" class="form-label">
         Name
       </label>
@@ -14,7 +14,11 @@
       <input type="text" id="name_box" name="query_name" class="form-control">
     </div>
 
-    <button class="btn btn-outline-primary mt-2">
+    <div class="mb-3">
+      <input type="file" id="image" name="image" class="form-control">
+    </div>
+
+    <button class="btn btn-outline-primary">
       Create cat
     </button>
   </form>
@@ -26,6 +30,7 @@
 <% @cats.each do |cat| %>
   <div class="card mb-3">
     <div class="card-body">
+      <img src="<%= cat.image.present? ? cat.image : "https://http.cat/404.jpg" %>" class="card-img-top" alt="image of <%= cat.name %>">
       <h5 class="card-title"><%= cat.name %></h5>
       <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(cat.created_at) %> ago</small></p>
     </div>
